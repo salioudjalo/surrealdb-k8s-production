@@ -23,4 +23,4 @@ jobs:
 
       - name: Validate Kubernetes manifests
         run: |
-          find manifests -name "*.yaml" -o -name "*.yml" | xargs kubeconform -strict -summary
+          find manifests \( -name "*.yaml" -o -name "*.yml" \) ! -name "kustomization.yaml" | xargs kubeconform -strict -summary

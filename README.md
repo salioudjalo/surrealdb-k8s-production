@@ -111,6 +111,8 @@ Use port-forwarding:
 
 This forwards local port 8000 to the SurrealDB service in the cluster.
 
+![logo-infos](/images/info-logs.png)
+
 ## Cleanup
 
 To delete the deployed resources:

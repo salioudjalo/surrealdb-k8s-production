@@ -16,14 +16,14 @@ spec:
     spec:
       containers:
         - name: surrealdb
-          image: surrealdb/surrealdb:nightly-dev
+          image: surrealdb/surrealdb:latest
           args:
             - start
             - --user
             - $(SURREAL_USER)
             - --pass
             - $(SURREAL_PASS)
-            - file:/data/database.db
+            - memory
           ports:
             - containerPort: 8000
               name: http

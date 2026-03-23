@@ -1,5 +1,7 @@
 # SurrealDB on Kubernetes (Production-Style)
 
+![SurrealDB](/images/surrealDB-logo.png)
+
 Production-oriented deployment of SurrealDB on Kubernetes using a StatefulSet, persistent storage, health checks, secrets, and basic reliability controls.
 
 ## Why I built this

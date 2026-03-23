@@ -1,0 +1,26 @@
+name: Validate Kubernetes Manifests
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install kubeconform
+        run: |
+          curl -L -o kubeconform.tar.gz https://github.com/yannh/kubeconform/releases/latest/download/kubeconform-linux-amd64.tar.gz
+          tar -xzf kubeconform.tar.gz
+          sudo mv kubeconform /usr/local/bin/kubeconform
+
+      - name: Validate Kubernetes manifests
+        run: |
+          find manifests -name "*.yaml" -o -name "*.yml" | xargs kubeconform -strict -summary

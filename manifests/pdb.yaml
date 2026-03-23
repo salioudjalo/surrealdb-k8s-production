@@ -1,0 +1,10 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: surrealdb-pdb
+  namespace: surrealdb
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: surrealdb
